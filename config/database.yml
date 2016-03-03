@@ -42,3 +42,11 @@ test:
   pool: 5
   username: postgres_user
   password: admin
+
+production:
+ adapter: postgresql
+ encoding: unicode
+ database: library_db
+ pool: 5
+ username: postgres
+ password: admin
