@@ -1,3 +1,22 @@
-<h1>welcome to books index</h1>
-<%=link_to 'new book', new_book_path%>
-<%=link_to 'Back', users_path%>
+<h1>welcome to books Management </h1>
+<p>
+	<h3>book details</h3>	
+	<h5>book name</h5>
+	<%@books.each do |book|%>
+	<p>
+		<%=book.name%>
+		<%=link_to 'show', book%>
+		<%=link_to 'edit books', edit_book_path(book)%>
+		<%=link_to 'delete a book', book, method: :delete %>
+
+	</p>
+	<% end %>
+</p>
+
+	<%=link_to 'new book', new_book_path%>
+	<p>
+	<%=link_to 'search a book', search_home_books_path%>
+	</p>
+<p>
+	<%= render 'link'%>
+</p>

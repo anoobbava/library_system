@@ -1,0 +1,29 @@
+<%=form_for @book do |f| %>
+	<%if @book.errors.any?%>
+	<%#binding.pry%>
+		<%@book.errors.full_messages.each do |message| %>
+			<%=message%>
+		<% end %>
+	<% end %>
+	<p>
+		<%=f.label 'name'%>
+		<%=f.text_area :name%>
+	</p>
+	<p>
+	<%=f.label 'author'%>
+	<%=f.text_field :author%>
+	</p>
+	<p>
+	<%=f.label 'price'%>
+	<%=f.text_field :price%>
+	</p>
+	<p>
+	<%=f.label 'isbn'%>
+	<%=f.text_field :isbn%>
+	</p>
+	<p>
+	<%=f.label 'book count'%>
+	<%=f.text_field :count%>
+	</p>
+	<%= f.submit %>
+<% end %>

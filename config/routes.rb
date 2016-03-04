@@ -7,7 +7,14 @@ Rails.application.routes.draw do
   # root 'user'
   # root :to => "devise/sessions#new"
   resources :users
-  resources :books
+  resources :books do
+    collection do
+      get :search_home
+      post :search
+    end
+  end
+
+  # get '/books/search_books' => 'books#search_books'
 
   devise_scope :user do
     root to: "devise/sessions#new"

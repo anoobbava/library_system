@@ -1,0 +1,7 @@
+<h1>search books</h1>
+<h3>please type bookname!</h3>
+<%= form_tag search_books_path do %>
+	<%=text_field_tag :search, params[:search] %>
+	<%=submit_tag 'Search' %>
+<% end %>
+ <%= render 'link' %>
