@@ -4,11 +4,11 @@ class Book < ActiveRecord::Base
 	validates :isbn, uniqueness: true
 
 	def self.search(search)
-		binding.pry
 		if search
-			Book.find(:all, :conditions => ["name LIKE ?", "%#{search}%"])
+			where('name LIKE ?', "%#{search}%")
 		else
-			find(:all)
+			all
 		end
 	end
 end
+

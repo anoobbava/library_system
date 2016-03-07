@@ -47,8 +47,17 @@ class BooksController < ApplicationController
 	end
 
 	def search
-		 @book = Book.search(params[:search])
-	end
+		@search = Book.search(params[:search])
+		respond_to do |format|
+ 			if @search.empty?
+ 				flash[:alert] = "No Book Found!!!"
+				format.html{ render :search_home }
+ 			else
+ 				flash[:alert] = "Book Found"
+ 				format.html { render :search }
+ 			end
+ 		end
+ 	end
 
 	private
 
