@@ -1,6 +1,10 @@
-<h1>welcome to books Management </h1>
+<ul class="nav nav-tabs">
+	<li role="presentation"><a>Welcome to Book Management</a></li>
+  <li role="presentation" class="active"><a href="books">Home</a></li>
+  <li role="presentation"><a href="books/new">New Book</a></li>
+  <li role="presentation"><a href="books/search_home">Search a Book</a></li>
+</ul>
 <p>
-	<h3>book details</h3>	
 	<h5>book name</h5>
 	<%@books.each do |book|%>
 	<p>
@@ -12,11 +16,7 @@
 	</p>
 	<% end %>
 </p>
-
-	<%=link_to 'new book', new_book_path%>
-	<p>
-	<%=link_to 'search a book', search_home_books_path%>
-	</p>
 <p>
 	<%= render 'link'%>
 </p>
+
