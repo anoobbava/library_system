@@ -1,44 +1,59 @@
 <div class="container-fluid">
 	<%=form_for @book do |f| %>
 		<%if @book.errors.any?%>
-			<%@book.errors.full_messages.each do |message| %>
-				<%=message%>
-			<% end %>
+
+			<div class="row">
+				<div class="alert alert-danger">
+					<%@book.errors.full_messages.each do |message| %>
+						<strong><%=message%>!</strong>
+					<% end %>
+				</div>
+			</div>
 		<% end %>
 
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<%=f.text_field :name, :class=> "form-control", :placeholder => "Book Name"%>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<%=f.text_field :name, :class=> "form-control", :placeholder => "Book Name"%>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<%=f.text_field :author, :class=> "form-control", :placeholder => "Book author"%>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<%=f.text_field :price, :class=> "form-control", :placeholder => "Book Price"%>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<%=f.text_field :isbn, :class=> "form-control", :placeholder => "Book isbn"%>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<%=f.text_field :count, :class=> "form-control", :placeholder => "Book count"%>
+				</div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
-				<%=f.text_field :author, :class=> "form-control", :placeholder => "Book author"%>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<%=f.text_field :price, :class=> "form-control", :placeholder => "Book Price"%>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<%=f.text_field :isbn, :class=> "form-control", :placeholder => "Book isbn"%>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<%=f.text_field :count, :class=> "form-control", :placeholder => "Book count"%>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<%=f.submit %>
+				<%=f.submit :class =>"btn btn-success" %>
 			</div>
 		</div>
 

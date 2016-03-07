@@ -10,5 +10,8 @@ class Book < ActiveRecord::Base
 			all
 		end
 	end
-end
 
+	def self.book_names
+		Book.find_by_sql("Select id,name from books")
+	end
+end

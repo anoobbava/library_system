@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     collection do
       get :search_home
       post :search
+      get :issue_home
+      post :issue
     end
   end
 
