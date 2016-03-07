@@ -16,7 +16,7 @@ class BooksController < ApplicationController
 			if @book.save
 				format.html{ redirect_to @book , notice: 'Book Added Successfully' }
 			else
-				format.html{render :new_book}	
+				format.html{ render :new }	
 			end
 		end
 	end
@@ -59,6 +59,20 @@ class BooksController < ApplicationController
  		end
  	end
 
+ 	# doubt-- when we calling the routes /books#issue it will come to
+ 	#here in this method, and after that it will go to a page of issue.html.erb and it will contain the form for issuing the books , from there if book issued is success we need to move to an another path means another action is that r8? 
+ 	# #get :search_home
+  #     post :search
+  #     get :issue_home
+  #     post :issue
+
+ 	def issue_home
+ 		@books = Book.book_names
+ 	end
+
+ 	def issue
+ 	end
+ 	
 	private
 
 	def find_book

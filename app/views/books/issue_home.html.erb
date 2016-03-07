@@ -1,0 +1,14 @@
+<h1>welcome to issue book</h1>
+
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="form-group">
+			<%=form_tag issue_books_path do %>
+			<%=select_tag 'book_id', options_for_select(@books.collect{ |u| [u.name, u.id] }, :selected => params[:book_id])%>
+				<%= submit_tag 'issue' %>
+			<% end %>
+		</div>
+		
+	</div>
+</div>
