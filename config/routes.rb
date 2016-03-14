@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :users
   resources :books do
     collection do
-      get :search_home
-      post :search
+      # get :search_home
+      get :search
       get :issue_home
       post :issue
     end

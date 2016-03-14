@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307071034) do
+ActiveRecord::Schema.define(version: 20160314155442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(version: 20160307071034) do
     t.string   "author"
     t.integer  "price"
     t.string   "isbn"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "count"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "is_issued",  default: false
   end
 
   create_table "issues", force: :cascade do |t|
-    t.integer  "books_id"
-    t.integer  "students_id"
+    t.integer  "book_id"
+    t.integer  "student_id"
     t.date     "issue_date"
     t.date     "return_date"
     t.datetime "created_at",  null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20160307071034) do
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
-    t.string   "class"
+    t.string   "class_name"
     t.string   "id_number",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

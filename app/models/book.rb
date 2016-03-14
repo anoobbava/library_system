@@ -1,6 +1,6 @@
 class Book < ActiveRecord::Base
 	#<Book id: nil, name: nil, author: nil, price: nil, isbn: nil, created_at: nil, updated_at: nil, count: nil> 
-	validates :name, :author, :price, :isbn, :count, presence: true
+	validates :name, :author, :price, :isbn, presence: true
 	validates :isbn, uniqueness: true
 
 	def self.search(search)

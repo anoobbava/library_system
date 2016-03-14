@@ -43,21 +43,28 @@ class BooksController < ApplicationController
 		end
 	end
 
-	def search_home
-	end
+	# def search_home
+	# end
 
 	def search
-		@search = Book.search(params[:search])
-		respond_to do |format|
- 			if @search.empty?
- 				flash[:alert] = "No Book Found!!!"
-				format.html{ render :search_home }
- 			else
- 				flash[:alert] = "Book Found"
- 				format.html { render :search }
- 			end
- 		end
- 	end
+		binding.pry
+		if params[:search]
+			@search_results = Book.search(params[:search])
+		else
+			render :search_home
+			# @search_results = Book.all
+		end
+	end
+		# @search = Book.search(params[:search])
+		# respond_to do |format|
+ 	# 		if @search.empty?
+ 	# 			flash[:alert] = "No Book Found!!!"
+		# 		format.html{ render :search_home }
+ 	# 		else
+ 	# 			flash[:alert] = "Book Found"
+ 	# 			format.html { render :search }
+ 	# 		end
+ 	# 	end
 
  	# doubt-- when we calling the routes /books#issue it will come to
  	#here in this method, and after that it will go to a page of issue.html.erb and it will contain the form for issuing the books , from there if book issued is success we need to move to an another path means another action is that r8? 
@@ -68,9 +75,13 @@ class BooksController < ApplicationController
 
  	def issue_home
  		@books = Book.book_names
+ 		@students = Student.find_names
+ 		# binding.pry
  	end
 
  	def issue
+ 		#issue the corresponding book_id to the corresponding student
+ 		#create check box in books issued to is done..
  	end
  	
 	private

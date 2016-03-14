@@ -1,4 +1,4 @@
 class Issue < ActiveRecord::Base
 	belongs_to :book
-	has_many :students
+	belongs_to :student
 end
